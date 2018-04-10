@@ -29,10 +29,14 @@ request(queryUrl, function(error, response, body) {
   if (!error && response.statusCode === 200) {
 
     // Parse the body of the site and recover json info
-    // figuring out how to get multiple select listings without writing a console log for each
+    // figuring out how to get multiple select listings without writing a console log for each or inline
     var bodyParsed = JSON.parse(body);
+    console.log("Title: " + bodyParsed.Title);
     console.log("Released: " + bodyParsed.Year);
-    console.log("Release Year: " + JSON.parse(body).Year);
+
+    console.log("Title: " + bodyParsed.Title + "\nreleased " + bodyParsed.Year);
+
+    console.log("\nRelease Year: " + JSON.parse(body).Year);
   }
 });
 
