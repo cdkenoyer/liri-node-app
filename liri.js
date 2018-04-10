@@ -29,13 +29,23 @@ request(queryUrl, function(error, response, body) {
   if (!error && response.statusCode === 200) {
 
     // Parse the body of the site and recover json info
-    // figuring out how to get multiple select listings without writing a console log for each or inline
+    // figuring out how to get multiple select listings without writing a console log for each inline
     var bodyParsed = JSON.parse(body);
     console.log("Title: " + bodyParsed.Title);
     console.log("Released: " + bodyParsed.Year);
+    //adding console.logs just to get movie values we want
+    console.log("IMDB Rating: " + bodyParsed.imdbRating);
+    console.log("Rotten Tomatoes Rating: " + bodyParsed.source);//need to scope correctly
+    console.log("Country: " + bodyParsed.Country);
+    console.log("Language: " + bodyParsed.Language);
+    console.log("Plot: " + bodyParsed.Plot);
+    console.log("Actors: " + bodyParsed.Actors);
 
-    console.log("Title: " + bodyParsed.Title + "\nreleased " + bodyParsed.Year);
+    
+    //space between \n and label indents on output as usual in a string but can use a single "console.log"
+    console.log("\n Title: " + bodyParsed.Title + "\nreleased " + bodyParsed.Year);
 
+    //this is kinda of my proof - to work against something I know works
     console.log("\nRelease Year: " + JSON.parse(body).Year);
   }
 });
@@ -43,7 +53,7 @@ request(queryUrl, function(error, response, body) {
 
 // left to do: next to make liri.js take in the "movie-this" command. thinking of using comparison of "if" and equals "==="
 
-// hope to use request success as model for next apis
+// then will use request success as model for next apis
 
 // var spotify = new Spotify(keys.spotify);
 
